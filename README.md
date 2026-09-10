@@ -1,45 +1,45 @@
-# MeckChat — Phase 1: Real Device Discovery
+# MeckChat (Global P2P)
 
-MeckChat is a cross-platform encrypted peer-to-peer communication application.
+MeckChat is a fully anonymous, peer-to-peer (P2P) chat application for Linux desktops. It allows real-time messaging without any central server, ensuring end-to-end encryption, read receipts, and typing indicators. MeckChat works globally over the internet using a secret passphrase, requiring no port forwarding or VPN.
 
-## Phase 1 Milestone
-Real-time physical device discovery between **Linux** and **Android** devices over the HiveMQ public MQTT broker (`broker.hivemq.com:8883` over TLS).
+## Features
+- **Global Reach**: Connect from anywhere in the world using a simple passphrase.
+- **Fully anonymous user IDs**: Automatic generation of unique key pairs (NaCl).
+- **Global Rendezvous**: Powered by an MQTT relay for seamless NAT-traversing connectivity.
+- **End-to-End Encryption**: Every message is encrypted with PyNaCl (libsodium) before leaving your machine.
+- **Typing Indicators & Read Receipts**: Real-time feedback on your conversation.
+- **Modern Linux Desktop UI**: Dark-themed, lightweight design built with PyQt5.
 
+## Requirements
+- Python 3.10+
+- PyNaCl
+- PyQt5
+- paho-mqtt
+
+## Setup and Run
+
+### Running from source
+1. Create a virtual environment and install dependencies:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+2. Start the application:
+   ```bash
+   python3 main.py
+   ```
+
+### Packaging as an Executable
+You can package the app as a standalone executable using the included `build.sh` script (requires `pyinstaller`):
+```bash
+./build.sh
 ```
-  ┌─────────────────┐                     ┌─────────────────┐
-  │  Linux Laptop   │                     │  Android Phone  │
-  │   (MeckChat)    │                     │   (MeckChat)    │
-  └────────┬────────┘                     └────────┬────────┘
-           │                                       │
-           │  MQTT TLS (8883)                      │  MQTT TLS (8883)
-           │                                       │
-           ▼                                       ▼
-     ┌───────────────────────────────────────────────────┐
-     │              HiveMQ Public Broker                 │
-     │             (broker.hivemq.com)                   │
-     └───────────────────────────────────────────────────┘
-```
+The executable will be located at `dist/MeckChat`.
 
-## Protocol Overview
-- **Broker**: `broker.hivemq.com:8883` (TLS)
-- **Topics**:
-  - `meckchat/v1/presence/online/<device_id>`: Retained online presence
-  - `meckchat/v1/presence/offline/<device_id>`: Offline notification / Last Will
-  - `meckchat/v1/discovery`: Broadcast discovery request
-- **Presence Heartbeat**: 30 seconds
-- **Self-Filtering**: Messages from the local device are ignored safely.
-
-## Repository Structure
-```
-meckchat/
-├── apps/
-│   └── flutter/        # Cross-platform Flutter application
-├── docs/               # Architecture & protocol documentation
-├── protocol/           # MQTT specification
-├── .github/
-│   └── workflows/      # CI & Release automation (Linux & Android)
-└── README.md
-```
-
-## License
-MIT
+## Using MeckChat
+1. Start the application. Enter your display name and generate your identity.
+2. Click **Join Secret Room**.
+3. Enter a secret passphrase (e.g., `my-super-secret-room-123`).
+4. Tell your friend to join the same room with the same passphrase.
+5. MeckChat will automatically discover your friend, exchange keys, and establish a secure E2E encrypted channel.

@@ -1,0 +1,6 @@
+PyQt5==5.15.11
+PyQt5-Qt5==5.15.18
+PyQt5-sip==12.18.0
+pynacl==1.6.2
+paho-mqtt==2.1.0
+PySocks==1.7.1

@@ -1,75 +1,8 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-migrate_working_dir/
-
-# User-specific stuff
-.idea/
-.vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Flutter / Dart
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-.pub-cache/
-.pub/
+venv/
+__pycache__/
 build/
-
-# Android
-apps/flutter/android/app/debug/
-apps/flutter/android/app/profile/
-apps/flutter/android/app/release/
-apps/flutter/android/app/src/debug/
-apps/flutter/android/app/src/profile/
-apps/flutter/android/.gradle
-apps/flutter/android/captures/
-apps/flutter/android/local.properties
-apps/flutter/android/key.jks
-apps/flutter/android/key.p12
-apps/flutter/android/key.pem
-
-# iOS / macOS
-apps/flutter/ios/Pods/
-apps/flutter/ios/Runner.xcworkspace/
-apps/flutter/ios/Flutter/App.framework
-apps/flutter/ios/Flutter/Flutter.framework
-apps/flutter/ios/Flutter/Flutter.podspec
-apps/flutter/ios/Flutter/Generated.xcconfig
-apps/flutter/ios/Flutter/app.flx
-apps/flutter/ios/Flutter/app.zip
-apps/flutter/ios/Flutter/flutter_assets/
-apps/flutter/macos/Pods/
-apps/flutter/macos/Runner.xcworkspace/
-apps/flutter/macos/Flutter/ephemeral
-
-# Windows
-apps/flutter/windows/flutter/ephemeral/
-
-# Linux
-apps/flutter/linux/flutter/ephemeral/
-
-# Rust / Cargo
-target/
-core/rust/target/
-**/*.rs.bk
-Cargo.lock
-
-# WireGuard & Secret Keys (Safety rule: NEVER commit keys!)
-*.key
-*.pem
-*.secret
-id_wg*
-privatekey
+dist/
+*.spec
+.vscode/
+.idea/
+*.pyc
